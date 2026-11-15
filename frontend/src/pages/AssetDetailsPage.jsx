@@ -45,7 +45,7 @@ import { runPredictionEvaluation } from '../services/predictionService';
 export const AssetDetailsPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { hasRole } = useAuth();
+  const { hasRole, hasAnyRole, user } = useAuth();
 
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -194,32 +194,44 @@ export const AssetDetailsPage = () => {
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* Action Buttons with Role-Based Controls */}
         <div className="flex items-center flex-wrap gap-2">
-          <button
-            onClick={handleRunEvaluation}
-            disabled={predictionRunning}
-            className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 rounded-lg hover:bg-orange-100 transition-colors cursor-pointer"
-          >
-            <Sparkles className="w-3.5 h-3.5 mr-1 text-orange-600" />
-            {predictionRunning ? 'Evaluating...' : 'Run AI Evaluation'}
-          </button>
+          {hasAnyRole(['Maintenance Admin', 'Operations Manager']) && (
+            <button
+              onClick={handleRunEvaluation}
+              disabled={predictionRunning}
+              className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 rounded-lg hover:bg-orange-100 transition-colors cursor-pointer"
+            >
+              <Sparkles className="w-3.5 h-3.5 mr-1 text-orange-600" />
+              {predictionRunning ? 'Evaluating...' : 'Run AI Evaluation'}
+            </button>
+          )}
 
-          <button
-            onClick={() => setTelemetryModalOpen(true)}
-            className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-slate-700 bg-white border border-slate-300 rounded-lg hover:bg-slate-50 transition-colors cursor-pointer"
-          >
-            <Radio className="w-3.5 h-3.5 mr-1 text-slate-500" />
-            Log Telemetry Reading
-          </button>
+          {hasAnyRole(['Maintenance Admin', 'Operations Manager', 'Technician']) && (
+            <>
+              <button
+                onClick={() => setTelemetryModalOpen(true)}
+                className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-stone-700 bg-white border border-stone-300 rounded-lg hover:bg-stone-50 transition-colors cursor-pointer"
+              >
+                <Radio className="w-3.5 h-3.5 mr-1 text-stone-500" />
+                Log Telemetry Reading
+              </button>
 
-          <button
-            onClick={() => setBreakdownModalOpen(true)}
-            className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-lg shadow-xs transition-colors cursor-pointer"
-          >
-            <AlertTriangle className="w-3.5 h-3.5 mr-1" />
-            Report Breakdown
-          </button>
+              <button
+                onClick={() => setBreakdownModalOpen(true)}
+                className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-white bg-rose-600 hover:bg-rose-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+              >
+                <AlertTriangle className="w-3.5 h-3.5 mr-1" />
+                Report Breakdown
+              </button>
+            </>
+          )}
+
+          {user?.role === 'Vendor' && (
+            <span className="inline-flex items-center px-3 py-1.5 text-xs font-semibold text-stone-600 bg-stone-100 border border-stone-200 rounded-lg">
+              Spare Parts Catalog & History View
+            </span>
+          )}
         </div>
       </div>
 

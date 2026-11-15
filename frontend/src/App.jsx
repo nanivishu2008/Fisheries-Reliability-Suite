@@ -50,22 +50,57 @@ export const App = () => {
               <Route path="assets/:id" element={<AssetDetailsPage />} />
 
               {/* Page 4: Maintenance Calendar and Technician Queue */}
-              <Route path="calendar" element={<MaintenanceCalendarPage />} />
+              <Route
+                path="calendar"
+                element={
+                  <ProtectedRoute allowedRoles={['Maintenance Admin', 'Operations Manager', 'Technician']}>
+                    <MaintenanceCalendarPage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Page 5: Maintenance Planning & Closure Verification (Kanban) */}
               <Route path="planning" element={<MaintenancePlanningBoardPage />} />
 
               {/* Page 6: Failure Risk and Remaining Useful Life (RUL) */}
-              <Route path="predictions" element={<FailureRiskPredictionPage />} />
+              <Route
+                path="predictions"
+                element={
+                  <ProtectedRoute allowedRoles={['Maintenance Admin', 'Operations Manager', 'Technician']}>
+                    <FailureRiskPredictionPage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Page 7: AI Maintenance Recommendations */}
-              <Route path="recommendations" element={<MaintenanceRecommendationsPage />} />
+              <Route
+                path="recommendations"
+                element={
+                  <ProtectedRoute allowedRoles={['Maintenance Admin', 'Operations Manager']}>
+                    <MaintenanceRecommendationsPage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Page 8: Reliability & Model Performance */}
-              <Route path="reliability" element={<ReliabilityAnalyticsPage />} />
+              <Route
+                path="reliability"
+                element={
+                  <ProtectedRoute allowedRoles={['Maintenance Admin', 'Operations Manager']}>
+                    <ReliabilityAnalyticsPage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Page 9: Reports and Analytics */}
-              <Route path="reports" element={<ReportsAnalyticsPage />} />
+              <Route
+                path="reports"
+                element={
+                  <ProtectedRoute allowedRoles={['Maintenance Admin', 'Operations Manager']}>
+                    <ReportsAnalyticsPage />
+                  </ProtectedRoute>
+                }
+              />
 
               {/* Page 10: Notifications */}
               <Route path="notifications" element={<NotificationsPage />} />

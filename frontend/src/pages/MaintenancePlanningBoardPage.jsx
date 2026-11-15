@@ -441,26 +441,66 @@ export const MaintenancePlanningBoardPage = () => {
               </p>
             </div>
 
-            {/* Stage Quick Transition Buttons */}
-            <div>
-              <span className="font-bold text-slate-700">Transition Workflow Stage:</span>
-              <div className="flex flex-wrap gap-1.5 mt-2">
-                {KANBAN_COLUMNS.map((c) => (
-                  <button
-                    key={c.id}
-                    disabled={selectedTask.status === c.id}
-                    onClick={() => handleMoveStatus(selectedTask, c.id)}
-                    className={`px-2.5 py-1 text-[11px] font-semibold rounded-md border transition-all ${
-                      selectedTask.status === c.id
-                        ? 'bg-orange-600 text-white border-orange-600 shadow-xs'
-                        : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
-                    }`}
-                  >
-                    {c.label}
-                  </button>
-                ))}
+            {/* Role-Specific Stage Transitions */}
+            {user?.role === 'Vendor' ? (
+              <div className="p-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-600 text-xs">
+                <span className="font-bold text-stone-800">Parts Vendor Access:</span> You have view-only access to work order specifications to prepare and supply requested replacement components.
               </div>
-            </div>
+            ) : user?.role === 'Technician' ? (
+              <div className="space-y-3">
+                <span className="font-bold text-stone-800">Technician Actions:</span>
+                <div className="flex flex-wrap gap-2">
+                  {selectedTask.status === 'Scheduled' && (
+                    <button
+                      type="button"
+                      onClick={() => handleMoveStatus(selectedTask, 'In Progress')}
+                      className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs cursor-pointer"
+                    >
+                      Start Work &rarr; Mark In Progress
+                    </button>
+                  )}
+                  {selectedTask.status === 'In Progress' && (
+                    <button
+                      type="button"
+                      onClick={() => handleMoveStatus(selectedTask, 'Awaiting Verification')}
+                      className="px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-xs cursor-pointer"
+                    >
+                      Finish Work &rarr; Submit for Verification
+                    </button>
+                  )}
+                  {selectedTask.status === 'Awaiting Verification' && (
+                    <div className="text-xs text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200">
+                      Work submitted! Waiting for Operations Manager or Admin signoff to close this work order.
+                    </div>
+                  )}
+                  {selectedTask.status === 'Completed' && (
+                    <div className="text-xs text-emerald-700 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
+                      This work order has been verified and officially closed.
+                    </div>
+                  )}
+                </div>
+              </div>
+            ) : (
+              <div>
+                <span className="font-bold text-stone-700">Manager Workflow Stage Transition:</span>
+                <div className="flex flex-wrap gap-1.5 mt-2">
+                  {KANBAN_COLUMNS.map((c) => (
+                    <button
+                      key={c.id}
+                      disabled={selectedTask.status === c.id}
+                      onClick={() => handleMoveStatus(selectedTask, c.id)}
+                      className={`px-2.5 py-1 text-[11px] font-semibold rounded-md border transition-all cursor-pointer ${
+                        selectedTask.status === c.id
+                          ? 'bg-orange-600 text-white border-orange-600 shadow-xs'
+                          : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
+                      }`}
+                    >
+                      {c.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Action Feedback Reason input */}
             {(selectedTask.status === 'Pending Review' ||
