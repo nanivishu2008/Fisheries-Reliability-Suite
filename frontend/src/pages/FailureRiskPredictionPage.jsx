@@ -61,18 +61,18 @@ export const FailureRiskPredictionPage = () => {
   return (
     <div className="space-y-6">
       {/* Page Header */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 gap-3">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-stone-200 gap-3">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
-              Failure Risk & Remaining Useful Life (RUL)
+            <h2 className="text-xl font-extrabold text-stone-900 tracking-tight">
+              Breakdown Predictions & Remaining Equipment Life
             </h2>
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-orange-100 text-orange-800 border border-orange-200">
-              Explainable AI Core
+              AI Early Warning
             </span>
           </div>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Physics-informed heuristic baseline + Google Gemini synthesis for degradation early warnings
+          <p className="text-xs text-stone-500 mt-0.5">
+            Forecasts impending machine failures before they occur, calculating safe operating hours remaining
           </p>
         </div>
 
@@ -80,7 +80,7 @@ export const FailureRiskPredictionPage = () => {
           <select
             value={riskFilter}
             onChange={(e) => setRiskFilter(e.target.value)}
-            className="px-2.5 py-1.5 text-xs bg-white border border-slate-200 rounded-lg text-slate-700"
+            className="px-2.5 py-1.5 text-xs bg-white border border-stone-200 rounded-lg text-stone-700"
           >
             <option value="">All Risk Levels</option>
             <option value="Critical">Critical Risk (&gt;75%)</option>
@@ -96,17 +96,17 @@ export const FailureRiskPredictionPage = () => {
               className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
             >
               <Sparkles className="w-4 h-4 mr-1.5" />
-              {evaluating ? 'Evaluating Fleet...' : 'Re-Run AI Fleet Evaluation'}
+              {evaluating ? 'Analyzing Fleet...' : 'Re-Run AI Fleet Analysis'}
             </button>
           )}
         </div>
       </div>
 
-      {/* Model Transparency Banner (Requirement 19) */}
-      <div className="p-4 bg-orange-50/70 border border-orange-200 rounded-xl flex items-start space-x-3 text-xs text-orange-900">
+      {/* Model Transparency Banner */}
+      <div className="p-4 bg-orange-50/70 border border-orange-200 rounded-xl flex items-start space-x-3 text-xs text-orange-950">
         <Info className="w-4 h-4 text-orange-700 shrink-0 mt-0.5" />
         <div>
-          <span className="font-bold">Transparent Engineering Notice:</span> This platform implements a dual-engine architecture: an explainable physics baseline (MTBF ratios & dynamic ISO sensor thresholds) and an integrated Google Gemini model. Predictions are evidence-based decision-support tools and require authorized human signoff.
+          <span className="font-bold">How Predictions Work:</span> The system combines live sensor measurements (vibration, operating temperature, motor current) with maintenance runtime benchmarks and Google Gemini AI. All predictions serve as early-warning alerts for human technicians and supervisors to inspect equipment before a breakdown occurs.
         </div>
       </div>
 
@@ -149,34 +149,34 @@ export const FailureRiskPredictionPage = () => {
                   <p className="text-xs text-slate-500 mt-0.5">{p.assetId?.name}</p>
 
                   {/* Risk Score & RUL Meters */}
-                  <div className="grid grid-cols-2 gap-3 my-4 p-3 bg-slate-50 rounded-xl">
+                  <div className="grid grid-cols-2 gap-3 my-4 p-3 bg-stone-50 rounded-xl border border-stone-100">
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase">Failure Risk</span>
-                      <div className="text-2xl font-black text-slate-800 flex items-baseline space-x-1">
-                        <span className={isCritical ? 'text-rose-600' : isHigh ? 'text-amber-600' : 'text-slate-800'}>
+                      <span className="text-[10px] font-bold text-stone-500 uppercase">Breakdown Risk</span>
+                      <div className="text-2xl font-black text-stone-800 flex items-baseline space-x-1">
+                        <span className={isCritical ? 'text-rose-600' : isHigh ? 'text-amber-600' : 'text-stone-800'}>
                           {p.riskScore}%
                         </span>
                       </div>
                     </div>
                     <div>
-                      <span className="text-[10px] font-bold text-slate-400 uppercase">Remaining Useful Life</span>
-                      <div className="text-2xl font-black text-slate-800 font-mono">
-                        {p.remainingUsefulLifeHours} <span className="text-xs font-normal text-slate-500">hrs</span>
+                      <span className="text-[10px] font-bold text-stone-500 uppercase">Safe Runtime Left</span>
+                      <div className="text-2xl font-black text-stone-800 font-mono">
+                        {p.remainingUsefulLifeHours} <span className="text-xs font-normal text-stone-500">hours</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Summary Explanation */}
-                  <p className="text-xs text-slate-600 line-clamp-2">{p.explanation}</p>
+                  <p className="text-xs text-stone-600 line-clamp-2">{p.explanation}</p>
                 </div>
 
                 {/* Footer Metadata */}
-                <div className="pt-3 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-400">
-                  <span className="font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded font-semibold text-slate-600">
-                    {p.engineType === 'GEMINI_AI' ? 'Gemini 1.5' : 'Heuristic Baseline'}
+                <div className="pt-3 border-t border-stone-100 flex items-center justify-between text-[11px] text-stone-400">
+                  <span className="font-mono text-[10px] bg-stone-100 px-2 py-0.5 rounded font-semibold text-stone-600">
+                    {p.engineType === 'GEMINI_AI' ? 'Google Gemini AI' : 'Sensor Baseline Engine'}
                   </span>
                   <span className="text-orange-700 font-bold hover:text-orange-900">
-                    Inspect Evidence &rarr;
+                    View Breakdown Details &rarr;
                   </span>
                 </div>
               </div>
@@ -190,25 +190,25 @@ export const FailureRiskPredictionPage = () => {
         <Modal
           isOpen={!!selectedPrediction}
           onClose={() => setSelectedPrediction(null)}
-          title={`Failure Prediction: ${selectedPrediction.failureType}`}
-          subtitle={`Target Asset: ${selectedPrediction.assetId?.name} (${selectedPrediction.assetId?.assetCode})`}
+          title={`Predicted Issue: ${selectedPrediction.failureType}`}
+          subtitle={`Equipment: ${selectedPrediction.assetId?.name} (${selectedPrediction.assetId?.assetCode})`}
           maxWidth="max-w-2xl"
         >
           <div className="space-y-4 text-xs">
             {/* Top Score Band */}
-            <div className="grid grid-cols-3 gap-3 p-4 bg-slate-50 rounded-xl text-center">
+            <div className="grid grid-cols-3 gap-3 p-4 bg-stone-50 rounded-xl text-center border border-stone-200">
               <div>
-                <span className="text-slate-400 font-semibold uppercase text-[10px]">Calculated Risk</span>
+                <span className="text-stone-500 font-semibold uppercase text-[10px]">Breakdown Risk</span>
                 <p className="text-2xl font-black text-rose-600 mt-1">{selectedPrediction.riskScore}%</p>
               </div>
               <div>
-                <span className="text-slate-400 font-semibold uppercase text-[10px]">Estimated RUL</span>
-                <p className="text-2xl font-black text-slate-800 font-mono mt-1">
+                <span className="text-stone-500 font-semibold uppercase text-[10px]">Safe Hours Left</span>
+                <p className="text-2xl font-black text-stone-800 font-mono mt-1">
                   {selectedPrediction.remainingUsefulLifeHours} hrs
                 </p>
               </div>
               <div>
-                <span className="text-slate-400 font-semibold uppercase text-[10px]">Model Confidence</span>
+                <span className="text-stone-500 font-semibold uppercase text-[10px]">AI Confidence</span>
                 <p className="text-2xl font-black text-orange-700 mt-1">
                   {(selectedPrediction.confidenceScore * 100).toFixed(0)}%
                 </p>
@@ -216,15 +216,15 @@ export const FailureRiskPredictionPage = () => {
             </div>
 
             <div>
-              <h4 className="font-bold text-slate-800 mb-1">Synthesized Root-Cause Analysis</h4>
-              <p className="text-slate-700 bg-white p-3.5 rounded-xl border border-slate-200 leading-relaxed">
+              <h4 className="font-bold text-stone-800 mb-1">Why This Might Fail (Root Cause Analysis)</h4>
+              <p className="text-stone-700 bg-white p-3.5 rounded-xl border border-stone-200 leading-relaxed">
                 {selectedPrediction.explanation}
               </p>
             </div>
 
             {/* Contributing Telemetry Factors */}
             <div>
-              <h4 className="font-bold text-slate-800 mb-2">Contributing Monitoring Vectors</h4>
+              <h4 className="font-bold text-stone-800 mb-2">Sensor Factors Causing This Alert</h4>
               <div className="space-y-2">
                 {selectedPrediction.contributingFactors?.map((f, idx) => (
                   <div key={idx} className="p-3 bg-slate-50 rounded-lg border border-slate-200/80 flex items-start justify-between">

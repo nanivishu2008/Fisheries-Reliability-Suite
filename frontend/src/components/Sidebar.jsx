@@ -25,7 +25,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
 
   const navigationItems = [
     {
-      group: 'Asset Operations',
+      group: 'Equipment & Health',
       items: [
         {
           name: 'Health Dashboard',
@@ -34,7 +34,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
           roles: ['Maintenance Admin', 'Operations Manager', 'Technician', 'Vendor'],
         },
         {
-          name: 'Asset Registry',
+          name: 'Equipment Registry',
           path: '/assets',
           icon: Boxes,
           roles: ['Maintenance Admin', 'Operations Manager', 'Technician', 'Vendor'],
@@ -42,16 +42,16 @@ export const Sidebar = ({ isOpen, onClose }) => {
       ],
     },
     {
-      group: 'Maintenance & Workflows',
+      group: 'Maintenance & Tasks',
       items: [
         {
-          name: 'Maintenance Calendar',
+          name: 'Service Calendar',
           path: '/calendar',
           icon: Calendar,
           roles: ['Maintenance Admin', 'Operations Manager', 'Technician'],
         },
         {
-          name: 'Work Orders & Planning',
+          name: 'Work Orders Board',
           path: '/planning',
           icon: ClipboardList,
           roles: ['Maintenance Admin', 'Operations Manager', 'Technician', 'Vendor'],
@@ -59,16 +59,16 @@ export const Sidebar = ({ isOpen, onClose }) => {
       ],
     },
     {
-      group: 'Predictive Reliability & AI',
+      group: 'AI Smart Insights',
       items: [
         {
-          name: 'AI Failure Predictions',
+          name: 'Breakdown Predictions',
           path: '/predictions',
           icon: Sparkles,
           roles: ['Maintenance Admin', 'Operations Manager', 'Technician'],
         },
         {
-          name: 'AI Recommendations',
+          name: 'Action Recommendations',
           path: '/recommendations',
           icon: Wrench,
           roles: ['Maintenance Admin', 'Operations Manager'],
@@ -80,7 +80,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
           roles: ['Maintenance Admin', 'Operations Manager'],
         },
         {
-          name: 'Reports & Audits',
+          name: 'Reports & Downloads',
           path: '/reports',
           icon: FileBarChart,
           roles: ['Maintenance Admin', 'Operations Manager'],
@@ -88,7 +88,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
       ],
     },
     {
-      group: 'System & Governance',
+      group: 'Administration',
       items: [
         {
           name: 'Notifications',
@@ -98,13 +98,13 @@ export const Sidebar = ({ isOpen, onClose }) => {
           roles: ['Maintenance Admin', 'Operations Manager', 'Technician', 'Vendor'],
         },
         {
-          name: 'User Management',
+          name: 'Team & Users',
           path: '/users',
           icon: Users,
           roles: ['Maintenance Admin'],
         },
         {
-          name: 'Audit Logs & Settings',
+          name: 'Activity Logs & Settings',
           path: '/settings',
           icon: ShieldCheck,
           roles: ['Maintenance Admin'],

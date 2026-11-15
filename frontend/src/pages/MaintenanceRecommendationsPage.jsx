@@ -121,15 +121,15 @@ export const MaintenanceRecommendationsPage = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b border-slate-200 gap-3">
         <div>
           <div className="flex items-center space-x-2">
-            <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
-              AI Maintenance Recommendations
+            <h2 className="text-xl font-extrabold text-stone-900 tracking-tight">
+              Action Recommendations & Work Suggestions
             </h2>
             <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-orange-100 text-orange-800 border border-orange-200">
-              Human-in-the-Loop Review
+              Manager Review
             </span>
           </div>
-          <p className="text-xs text-slate-500 mt-0.5">
-            Prescriptive reliability actions generated from failure risk synthesis and spare part availability
+          <p className="text-xs text-stone-500 mt-0.5">
+            Smart repair recommendations created from machine sensor alerts and parts stock. Review to approve, customize, or dismiss.
           </p>
         </div>
 
