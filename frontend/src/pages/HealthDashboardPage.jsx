@@ -159,6 +159,24 @@ export const HealthDashboardPage = () => {
         </div>
       </div>
 
+      {/* Clean Baseline Welcome Banner when 0 Assets */}
+      {totalAssets === 0 && (
+        <div className="p-6 bg-orange-50 border border-orange-200 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div>
+            <h3 className="text-sm font-bold text-orange-950">Clean Slate Ready for Your Custom Problem</h3>
+            <p className="text-xs text-orange-800 mt-1 max-w-xl">
+              All dummy assets and demo records have been cleared. You can now simulate a problem from scratch: start by registering an asset (as Admin/Manager), log a sensor reading, generate an AI prediction, and trace the workflow through all 4 roles.
+            </p>
+          </div>
+          <button
+            onClick={() => navigate('/assets')}
+            className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs whitespace-nowrap cursor-pointer transition-colors"
+          >
+            Register Your Asset &rarr;
+          </button>
+        </div>
+      )}
+
       {/* Primary KPI Row */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <DashboardCard
@@ -231,35 +249,43 @@ export const HealthDashboardPage = () => {
           className="lg:col-span-1"
         >
           <div className="h-64 flex items-center justify-center">
-            <ResponsiveContainer width="100%" height="100%">
-              <PieChart>
-                <Pie
-                  data={healthPieData}
-                  cx="50%"
-                  cy="50%"
-                  innerRadius={60}
-                  outerRadius={85}
-                  paddingAngle={4}
-                  dataKey="value"
-                >
-                  {healthPieData.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={entry.color} />
-                  ))}
-                </Pie>
-                <Tooltip
-                  formatter={(value, name) => [`${value} Assets`, name]}
-                  contentStyle={{
-                    backgroundColor: '#ffffff',
-                    borderColor: '#e7e5e4',
-                    borderRadius: '8px',
-                    color: '#1c1917',
-                    fontSize: '12px',
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-                  }}
-                />
-                <Legend verticalAlign="bottom" height={36} iconSize={10} wrapperStyle={{ fontSize: '12px' }} />
-              </PieChart>
-            </ResponsiveContainer>
+            {totalAssets === 0 ? (
+              <div className="text-center p-6">
+                <HeartPulse className="w-8 h-8 text-stone-300 mx-auto mb-2" />
+                <p className="text-xs font-semibold text-stone-500">No condition data yet</p>
+                <p className="text-[11px] text-stone-400 mt-0.5">Register an asset to monitor health bands</p>
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%">
+                <PieChart>
+                  <Pie
+                    data={healthPieData}
+                    cx="50%"
+                    cy="50%"
+                    innerRadius={60}
+                    outerRadius={85}
+                    paddingAngle={4}
+                    dataKey="value"
+                  >
+                    {healthPieData.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={entry.color} />
+                    ))}
+                  </Pie>
+                  <Tooltip
+                    formatter={(value, name) => [`${value} Assets`, name]}
+                    contentStyle={{
+                      backgroundColor: '#ffffff',
+                      borderColor: '#e7e5e4',
+                      borderRadius: '8px',
+                      color: '#1c1917',
+                      fontSize: '12px',
+                      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                    }}
+                  />
+                  <Legend verticalAlign="bottom" height={36} iconSize={10} wrapperStyle={{ fontSize: '12px' }} />
+                </PieChart>
+              </ResponsiveContainer>
+            )}
           </div>
         </ChartCard>
 
@@ -268,33 +294,41 @@ export const HealthDashboardPage = () => {
           subtitle="Coverage across all 8 industrial aquaculture equipment domains"
           className="lg:col-span-2"
         >
-          <div className="h-64">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart
-                data={stats?.categoryDistribution || []}
-                margin={{ top: 10, right: 20, left: -10, bottom: 25 }}
-              >
-                <XAxis
-                  dataKey="category"
-                  tick={{ fontSize: 11, fill: '#78716c' }}
-                  angle={-20}
-                  textAnchor="end"
-                  interval={0}
-                />
-                <YAxis tick={{ fontSize: 11, fill: '#78716c' }} />
-                <Tooltip
-                  contentStyle={{
-                    backgroundColor: '#ffffff',
-                    borderColor: '#e7e5e4',
-                    borderRadius: '8px',
-                    color: '#1c1917',
-                    fontSize: '12px',
-                    boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
-                  }}
-                />
-                <Bar dataKey="count" fill="#ea580c" radius={[4, 4, 0, 0]} name="Asset Count" />
-              </BarChart>
-            </ResponsiveContainer>
+          <div className="h-64 flex items-center justify-center">
+            {totalAssets === 0 ? (
+              <div className="text-center p-6">
+                <Boxes className="w-8 h-8 text-stone-300 mx-auto mb-2" />
+                <p className="text-xs font-semibold text-stone-500">No categories to display</p>
+                <p className="text-[11px] text-stone-400 mt-0.5">Assets will automatically plot here by category</p>
+              </div>
+            ) : (
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={stats?.categoryDistribution || []}
+                  margin={{ top: 10, right: 20, left: -10, bottom: 25 }}
+                >
+                  <XAxis
+                    dataKey="category"
+                    tick={{ fontSize: 11, fill: '#78716c' }}
+                    angle={-20}
+                    textAnchor="end"
+                    interval={0}
+                  />
+                  <YAxis tick={{ fontSize: 11, fill: '#78716c' }} />
+                  <Tooltip
+                    contentStyle={{
+                      backgroundColor: '#ffffff',
+                      borderColor: '#e7e5e4',
+                      borderRadius: '8px',
+                      color: '#1c1917',
+                      fontSize: '12px',
+                      boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)',
+                    }}
+                  />
+                  <Bar dataKey="count" fill="#ea580c" radius={[4, 4, 0, 0]} name="Asset Count" />
+                </BarChart>
+              </ResponsiveContainer>
+            )}
           </div>
         </ChartCard>
       </div>
