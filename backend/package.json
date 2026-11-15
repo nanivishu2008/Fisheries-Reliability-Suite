@@ -11,6 +11,9 @@
     "clear-data": "node src/seed/clearData.js",
     "test": "node --test"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "dependencies": {
     "@google/generative-ai": "^0.24.0",
     "bcryptjs": "^2.4.3",
