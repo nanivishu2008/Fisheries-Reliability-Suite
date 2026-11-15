@@ -192,7 +192,7 @@ export const LoginPage = () => {
                 onClick={() => quickFill('admin@fisheries.org', 'AdminPass123!')}
                 className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-teal-300 rounded-lg text-left border border-slate-700 transition-colors"
               >
-                <div className="font-bold">Maintenance Admin</div>
+                <div className="font-bold">Maintenance Admin (Vishal)</div>
                 <div className="text-[10px] text-slate-400">admin@fisheries.org</div>
               </button>
               <button
@@ -200,7 +200,7 @@ export const LoginPage = () => {
                 onClick={() => quickFill('manager@fisheries.org', 'ManagerPass123!')}
                 className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-sky-300 rounded-lg text-left border border-slate-700 transition-colors"
               >
-                <div className="font-bold">Operations Manager</div>
+                <div className="font-bold">Operations Manager (Arjun)</div>
                 <div className="text-[10px] text-slate-400">manager@fisheries.org</div>
               </button>
               <button
@@ -208,7 +208,7 @@ export const LoginPage = () => {
                 onClick={() => quickFill('tech@fisheries.org', 'TechPass123!')}
                 className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-emerald-300 rounded-lg text-left border border-slate-700 transition-colors"
               >
-                <div className="font-bold">Technician</div>
+                <div className="font-bold">Technician (Raj)</div>
                 <div className="text-[10px] text-slate-400">tech@fisheries.org</div>
               </button>
               <button
@@ -216,7 +216,7 @@ export const LoginPage = () => {
                 onClick={() => quickFill('vendor@marineparts.com', 'VendorPass123!')}
                 className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-amber-300 rounded-lg text-left border border-slate-700 transition-colors"
               >
-                <div className="font-bold">Vendor</div>
+                <div className="font-bold">Vendor (Ram)</div>
                 <div className="text-[10px] text-slate-400">vendor@marineparts.com</div>
               </button>
             </div>

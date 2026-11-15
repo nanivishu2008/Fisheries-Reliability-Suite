@@ -36,7 +36,7 @@ export const seedDatabase = async () => {
 
     // 1. Seed Users (The 4 Required Roles)
     const adminUser = await User.create({
-      name: 'Elena Rostova',
+      name: 'Vishal',
       email: 'admin@fisheries.org',
       password: 'AdminPass123!',
       role: 'Maintenance Admin',
@@ -47,7 +47,7 @@ export const seedDatabase = async () => {
     });
 
     const managerUser = await User.create({
-      name: 'Marcus Thorne',
+      name: 'Arjun',
       email: 'manager@fisheries.org',
       password: 'ManagerPass123!',
       role: 'Operations Manager',
@@ -58,7 +58,7 @@ export const seedDatabase = async () => {
     });
 
     const techUser = await User.create({
-      name: 'Liam Gallagher',
+      name: 'Raj',
       email: 'tech@fisheries.org',
       password: 'TechPass123!',
       role: 'Technician',
@@ -69,7 +69,7 @@ export const seedDatabase = async () => {
     });
 
     const vendorUser = await User.create({
-      name: 'Sarah Chen',
+      name: 'Ram',
       email: 'vendor@marineparts.com',
       password: 'VendorPass123!',
       role: 'Vendor',
