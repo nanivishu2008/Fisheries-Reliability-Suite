@@ -89,7 +89,7 @@ export const FailureRiskPredictionPage = () => {
             <option value="Low">Low Risk (&lt;25%)</option>
           </select>
 
-          {hasAnyRole(['Maintenance Admin', 'Operations Manager']) && (
+          {hasAnyRole(['Maintenance Admin', 'Operations Manager', 'Technician']) && (
             <button
               onClick={handleRunBatchEvaluation}
               disabled={evaluating}

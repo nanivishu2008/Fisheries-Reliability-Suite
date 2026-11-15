@@ -41,6 +41,7 @@ import {
   createInspection,
 } from '../services/assetService';
 import { runPredictionEvaluation } from '../services/predictionService';
+import toast from 'react-hot-toast';
 
 export const AssetDetailsPage = () => {
   const { id } = useParams();
@@ -99,6 +100,7 @@ export const AssetDetailsPage = () => {
         unit: telemetryForm.unit,
         operatingContext: telemetryForm.operatingContext,
       });
+      toast.success('Sensor telemetry recorded successfully');
       setTelemetryModalOpen(false);
       setTelemetryForm({
         parameter: 'Motor Temperature',
@@ -108,7 +110,7 @@ export const AssetDetailsPage = () => {
       });
       await loadAssetData();
     } catch (err) {
-      alert(err.response?.data?.message || 'Failed to record telemetry');
+      toast.error(err.response?.data?.message || 'Failed to record telemetry');
     } finally {
       setTelemetrySubmitting(false);
     }
@@ -126,11 +128,12 @@ export const AssetDetailsPage = () => {
           ? breakdownForm.symptoms.split(',').map((s) => s.trim())
           : [],
       });
+      toast.success('Breakdown event reported');
       setBreakdownModalOpen(false);
       setBreakdownForm({ problemDescription: '', severity: 'Major', symptoms: '' });
       await loadAssetData();
     } catch (err) {
-      alert(err.response?.data?.message || 'Failed to submit breakdown');
+      toast.error(err.response?.data?.message || 'Failed to submit breakdown');
     } finally {
       setBreakdownSubmitting(false);
     }
@@ -140,9 +143,10 @@ export const AssetDetailsPage = () => {
     try {
       setPredictionRunning(true);
       await runPredictionEvaluation(id);
+      toast.success('AI evaluation complete! Failure risks & recommendations generated.');
       await loadAssetData();
     } catch (err) {
-      alert('AI predictive evaluation failed.');
+      toast.error('AI predictive evaluation failed.');
     } finally {
       setPredictionRunning(false);
     }
@@ -196,7 +200,7 @@ export const AssetDetailsPage = () => {
 
         {/* Action Buttons with Role-Based Controls */}
         <div className="flex items-center flex-wrap gap-2">
-          {hasAnyRole(['Maintenance Admin', 'Operations Manager']) && (
+          {hasAnyRole(['Maintenance Admin', 'Operations Manager', 'Technician']) && (
             <button
               onClick={handleRunEvaluation}
               disabled={predictionRunning}
