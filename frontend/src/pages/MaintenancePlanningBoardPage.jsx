@@ -446,59 +446,79 @@ export const MaintenancePlanningBoardPage = () => {
               <div className="p-3 bg-stone-50 border border-stone-200 rounded-xl text-stone-600 text-xs">
                 <span className="font-bold text-stone-800">Parts Vendor Access:</span> You have view-only access to work order specifications to prepare and supply requested replacement components.
               </div>
-            ) : user?.role === 'Technician' ? (
+            ) : (
               <div className="space-y-3">
-                <span className="font-bold text-stone-800">Technician Actions:</span>
+                <span className="font-bold text-stone-800">Workflow Action:</span>
                 <div className="flex flex-wrap gap-2">
-                  {selectedTask.status === 'Scheduled' && (
-                    <button
-                      type="button"
-                      onClick={() => handleMoveStatus(selectedTask, 'In Progress')}
-                      className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs cursor-pointer"
-                    >
-                      Start Work &rarr; Mark In Progress
-                    </button>
+                  {(selectedTask.status === 'Approved' || selectedTask.status === 'Scheduled' || selectedTask.status === 'Reported') && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => handleMoveStatus(selectedTask, 'In Progress')}
+                        className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-sm shadow-orange-500/20 cursor-pointer flex items-center"
+                      >
+                        Start Work &rarr; Mark In Progress
+                      </button>
+
+                      {selectedTask.status === 'Approved' && (
+                        <button
+                          type="button"
+                          onClick={() => handleMoveStatus(selectedTask, 'Scheduled')}
+                          className="px-3 py-2 text-xs font-semibold text-stone-700 bg-stone-100 hover:bg-stone-200 rounded-lg border border-stone-200 cursor-pointer"
+                        >
+                          Mark as Scheduled
+                        </button>
+                      )}
+                    </>
                   )}
+
                   {selectedTask.status === 'In Progress' && (
                     <button
                       type="button"
                       onClick={() => handleMoveStatus(selectedTask, 'Awaiting Verification')}
-                      className="px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-xs cursor-pointer"
+                      className="px-4 py-2 text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-700 rounded-lg shadow-sm shadow-emerald-500/20 cursor-pointer flex items-center"
                     >
                       Finish Work &rarr; Submit for Verification
                     </button>
                   )}
+
                   {selectedTask.status === 'Awaiting Verification' && (
-                    <div className="text-xs text-amber-700 bg-amber-50 p-2.5 rounded-lg border border-amber-200">
-                      Work submitted! Waiting for Operations Manager or Admin signoff to close this work order.
+                    <div className="text-xs text-amber-800 bg-amber-50 p-3 rounded-lg border border-amber-200 w-full">
+                      <span className="font-bold">Work Submitted:</span> Field repair is completed and waiting for Operations Manager (Arjun) or Admin (Vishal) closure verification below.
                     </div>
                   )}
+
                   {selectedTask.status === 'Completed' && (
-                    <div className="text-xs text-emerald-700 bg-emerald-50 p-2.5 rounded-lg border border-emerald-200">
-                      This work order has been verified and officially closed.
+                    <div className="text-xs text-emerald-800 bg-emerald-50 p-3 rounded-lg border border-emerald-200 w-full">
+                      <span className="font-bold">Task Completed:</span> This maintenance work order has been verified and officially closed.
                     </div>
                   )}
                 </div>
-              </div>
-            ) : (
-              <div>
-                <span className="font-bold text-stone-700">Manager Workflow Stage Transition:</span>
-                <div className="flex flex-wrap gap-1.5 mt-2">
-                  {KANBAN_COLUMNS.map((c) => (
-                    <button
-                      key={c.id}
-                      disabled={selectedTask.status === c.id}
-                      onClick={() => handleMoveStatus(selectedTask, c.id)}
-                      className={`px-2.5 py-1 text-[11px] font-semibold rounded-md border transition-all cursor-pointer ${
-                        selectedTask.status === c.id
-                          ? 'bg-orange-600 text-white border-orange-600 shadow-xs'
-                          : 'bg-white text-stone-700 border-stone-200 hover:bg-stone-50'
-                      }`}
-                    >
-                      {c.label}
-                    </button>
-                  ))}
-                </div>
+
+                {/* Additional manual column switcher for Managers & Admins */}
+                {hasAnyRole(['Maintenance Admin', 'Operations Manager']) && (
+                  <div className="pt-2 border-t border-stone-100 mt-2">
+                    <span className="text-[11px] font-semibold text-stone-500 block mb-1.5">
+                      Or Switch to Any Kanban Stage (Manager Override):
+                    </span>
+                    <div className="flex flex-wrap gap-1">
+                      {KANBAN_COLUMNS.map((c) => (
+                        <button
+                          key={c.id}
+                          disabled={selectedTask.status === c.id}
+                          onClick={() => handleMoveStatus(selectedTask, c.id)}
+                          className={`px-2 py-0.5 text-[10px] font-semibold rounded border transition-all cursor-pointer ${
+                            selectedTask.status === c.id
+                              ? 'bg-orange-600 text-white border-orange-600'
+                              : 'bg-white text-stone-600 border-stone-200 hover:bg-stone-50'
+                          }`}
+                        >
+                          {c.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
 
