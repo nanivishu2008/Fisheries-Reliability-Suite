@@ -47,9 +47,9 @@ export const DataTable = ({
                         <span className="text-slate-400">
                           {isCurrentSort ? (
                             sortOrder === 'asc' ? (
-                              <ArrowUp className="w-3.5 h-3.5 text-teal-600" />
+                              <ArrowUp className="w-3.5 h-3.5 text-orange-600" />
                             ) : (
-                              <ArrowDown className="w-3.5 h-3.5 text-teal-600" />
+                              <ArrowDown className="w-3.5 h-3.5 text-orange-600" />
                             )
                           ) : (
                             <ArrowUpDown className="w-3 h-3 text-slate-300" />
@@ -68,7 +68,7 @@ export const DataTable = ({
                 key={row._id || row.id || rowIdx}
                 onClick={() => onRowClick && onRowClick(row)}
                 className={`transition-colors ${
-                  onRowClick ? 'cursor-pointer hover:bg-teal-50/30' : 'hover:bg-slate-50/60'
+                  onRowClick ? 'cursor-pointer hover:bg-orange-50/30' : 'hover:bg-slate-50/60'
                 }`}
               >
                 {columns.map((col, colIdx) => (

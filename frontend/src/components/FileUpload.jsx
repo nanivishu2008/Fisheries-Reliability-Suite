@@ -36,9 +36,9 @@ export const FileUpload = ({
       <label className="block text-xs font-semibold text-slate-700">{label}</label>
       <div
         onClick={() => fileInputRef.current?.click()}
-        className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-slate-200 rounded-xl hover:border-teal-500 hover:bg-teal-50/20 transition-all cursor-pointer bg-slate-50/50"
+        className="flex flex-col items-center justify-center p-6 border-2 border-dashed border-stone-200 rounded-xl hover:border-orange-500 hover:bg-orange-50/20 transition-all cursor-pointer bg-stone-50/50"
       >
-        <UploadCloud className="w-8 h-8 text-teal-600 mb-2" />
+        <UploadCloud className="w-8 h-8 text-orange-500 mb-2" />
         <p className="text-xs font-semibold text-slate-700">Click to browse or drag file here</p>
         <p className="text-[11px] text-slate-400 mt-1">PNG, JPG, PDF up to {maxSizeMB}MB</p>
         <input
@@ -53,11 +53,11 @@ export const FileUpload = ({
       {error && <p className="text-xs text-rose-600 font-medium">{error}</p>}
 
       {selectedFile && (
-        <div className="flex items-center justify-between p-3 bg-teal-50/70 border border-teal-200 rounded-lg text-xs">
+        <div className="flex items-center justify-between p-3 bg-orange-50/70 border border-orange-200 rounded-lg text-xs">
           <div className="flex items-center space-x-2 truncate">
-            <FileText className="w-4 h-4 text-teal-700 shrink-0" />
-            <span className="font-semibold text-teal-900 truncate">{selectedFile.name}</span>
-            <span className="text-teal-600">({(selectedFile.size / 1024).toFixed(1)} KB)</span>
+            <FileText className="w-4 h-4 text-orange-700 shrink-0" />
+            <span className="font-semibold text-orange-950 truncate">{selectedFile.name}</span>
+            <span className="text-orange-600">({(selectedFile.size / 1024).toFixed(1)} KB)</span>
           </div>
           <button
             type="button"
@@ -92,7 +92,7 @@ export const NotificationPanel = ({
         <div className="flex items-center space-x-2">
           <h4 className="text-xs font-bold text-slate-800 uppercase tracking-wider">Notifications</h4>
           {unreadCount > 0 && (
-            <span className="px-2 py-0.5 text-[10px] font-bold text-teal-700 bg-teal-100 rounded-full">
+            <span className="px-2 py-0.5 text-[10px] font-bold text-orange-700 bg-orange-100 rounded-full">
               {unreadCount} New
             </span>
           )}
@@ -100,7 +100,7 @@ export const NotificationPanel = ({
         {unreadCount > 0 && (
           <button
             onClick={onMarkAllAsRead}
-            className="text-[11px] font-semibold text-teal-600 hover:text-teal-800"
+            className="text-[11px] font-semibold text-orange-600 hover:text-orange-800"
           >
             Mark all read
           </button>
@@ -116,7 +116,7 @@ export const NotificationPanel = ({
               key={item._id}
               onClick={() => onMarkAsRead && onMarkAsRead(item._id)}
               className={`p-3.5 hover:bg-slate-50 transition-colors cursor-pointer text-xs ${
-                !item.isRead ? 'bg-teal-50/40' : ''
+                !item.isRead ? 'bg-orange-50/40' : ''
               }`}
             >
               <div className="flex items-start justify-between">
@@ -134,7 +134,7 @@ export const NotificationPanel = ({
       <div className="p-2.5 bg-slate-50/80 border-t border-slate-100 text-center">
         <button
           onClick={onViewAll}
-          className="text-xs font-bold text-teal-700 hover:text-teal-900"
+          className="text-xs font-bold text-orange-600 hover:text-orange-800"
         >
           View All Notifications &rarr;
         </button>

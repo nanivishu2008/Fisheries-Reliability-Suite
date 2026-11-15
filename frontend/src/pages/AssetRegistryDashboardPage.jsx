@@ -174,7 +174,7 @@ export const AssetRegistryDashboardPage = () => {
       header: 'Asset Code',
       accessor: 'assetCode',
       render: (row) => (
-        <span className="font-mono font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded text-xs">
+        <span className="font-mono font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded text-xs">
           {row.assetCode}
         </span>
       ),
@@ -244,7 +244,7 @@ export const AssetRegistryDashboardPage = () => {
         <div className="flex items-center space-x-2" onClick={(e) => e.stopPropagation()}>
           <button
             onClick={() => navigate(`/assets/${row._id}`)}
-            className="p-1.5 text-teal-700 hover:text-teal-900 hover:bg-teal-50 rounded transition-colors"
+            className="p-1.5 text-orange-700 hover:text-orange-900 hover:bg-orange-50 rounded transition-colors"
             title="Inspect Asset"
           >
             <ExternalLink className="w-4 h-4" />
@@ -296,7 +296,7 @@ export const AssetRegistryDashboardPage = () => {
           {hasRole('Maintenance Admin') && (
             <button
               onClick={() => setIsRegisterModalOpen(true)}
-              className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
             >
               <Plus className="w-4 h-4 mr-1.5" />
               Register New Asset
@@ -354,7 +354,7 @@ export const AssetRegistryDashboardPage = () => {
           value={stats?.openWorkOrders || 0}
           subtitle="In maintenance pipeline"
           icon={ClipboardList}
-          accentColor="teal"
+          accentColor="orange"
         />
         <DashboardCard
           title="Predicted Failures"
@@ -420,7 +420,7 @@ export const AssetRegistryDashboardPage = () => {
                 <Tooltip
                   contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
                 />
-                <Bar dataKey="count" fill="#0d9488" radius={[4, 4, 0, 0]} name="Asset Count" />
+                <Bar dataKey="count" fill="#ea580c" radius={[4, 4, 0, 0]} name="Asset Count" />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -603,7 +603,7 @@ export const AssetRegistryDashboardPage = () => {
             <button
               type="submit"
               disabled={registerLoading}
-              className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+              className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
             >
               {registerLoading ? 'Saving...' : 'Register Asset'}
             </button>

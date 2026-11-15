@@ -16,7 +16,7 @@ export const SearchBar = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-9 pr-8 py-2 text-sm text-slate-800 bg-white border border-slate-200 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 transition-colors placeholder:text-slate-400"
+        className="w-full pl-9 pr-8 py-2 text-sm text-stone-800 bg-white border border-stone-200 rounded-xl focus:outline-hidden focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-colors placeholder:text-stone-400"
       />
       {value && (
         <button
@@ -38,7 +38,7 @@ export const FilterPanel = ({ children, onReset, isFiltered, title = 'Filter Rec
         {isFiltered && onReset && (
           <button
             onClick={onReset}
-            className="text-xs font-semibold text-teal-600 hover:text-teal-800 transition-colors"
+            className="text-xs font-semibold text-orange-600 hover:text-orange-800 transition-colors"
           >
             Reset Filters
           </button>

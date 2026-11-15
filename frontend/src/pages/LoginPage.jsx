@@ -65,49 +65,49 @@ export const LoginPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#070b1a] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
+    <div className="min-h-screen bg-[#fafaf9] flex flex-col justify-center py-12 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Background Decorative Grid */}
-      <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px] opacity-30 pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(#e7e5e4_1px,transparent_1px)] [background-size:24px_24px] opacity-70 pointer-events-none" />
 
       {/* Decorative Glow */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="sm:mx-auto sm:w-full sm:max-w-md relative z-10">
         <div className="flex items-center justify-center space-x-3">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-teal-500 to-sky-400 flex items-center justify-center shadow-lg shadow-teal-500/25">
-            <Fish className="w-7 h-7 text-slate-950" />
+          <div className="w-12 h-12 rounded-2xl bg-orange-600 flex items-center justify-center shadow-lg shadow-orange-500/25">
+            <Fish className="w-7 h-7 text-white" />
           </div>
           <div className="text-left">
-            <h1 className="text-2xl font-black text-white tracking-tight">AquaReliability</h1>
-            <p className="text-xs font-semibold text-teal-400 uppercase tracking-widest">
+            <h1 className="text-2xl font-black text-stone-900 tracking-tight">AquaReliability</h1>
+            <p className="text-xs font-bold text-orange-600 uppercase tracking-widest">
               Fisheries Maintenance Suite
             </p>
           </div>
         </div>
-        <h2 className="mt-6 text-center text-xl font-bold text-slate-200">
+        <h2 className="mt-6 text-center text-xl font-bold text-stone-800">
           Industrial Reliability & Asset Portal
         </h2>
-        <p className="mt-1 text-center text-xs text-slate-400">
+        <p className="mt-1 text-center text-xs text-stone-500">
           Predictive maintenance and lifecycle control for aquaculture enterprises
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md relative z-10 px-4 sm:px-0">
-        <div className="bg-[#0f172a] py-8 px-6 sm:px-10 shadow-2xl rounded-2xl border border-slate-800">
+        <div className="bg-white py-8 px-6 sm:px-10 shadow-xl rounded-2xl border border-stone-200">
           {error && (
-            <div className="mb-5 p-3.5 bg-rose-500/10 border border-rose-500/30 rounded-xl flex items-start space-x-3 text-rose-300 text-xs">
-              <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+            <div className="mb-5 p-3.5 bg-rose-50 border border-rose-200 rounded-xl flex items-start space-x-3 text-rose-700 text-xs">
+              <AlertCircle className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
               <span>{error}</span>
             </div>
           )}
 
           <form onSubmit={handleSubmit} className="space-y-5">
             <div>
-              <label className="block text-xs font-semibold text-slate-300">
+              <label className="block text-xs font-semibold text-stone-700">
                 Corporate Email Address
               </label>
               <div className="mt-1.5 relative rounded-lg shadow-xs">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-stone-400">
                   <Mail className="w-4 h-4" />
                 </div>
                 <input
@@ -116,15 +116,15 @@ export const LoginPage = () => {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="name@fisheries.org"
-                  className="w-full pl-9 pr-3.5 py-2.5 text-xs text-white bg-slate-900 border border-slate-700 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 placeholder-slate-500"
+                  className="w-full pl-9 pr-3.5 py-2.5 text-xs text-stone-900 bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 placeholder-stone-400"
                 />
               </div>
             </div>
 
             <div>
-              <label className="block text-xs font-semibold text-slate-300">Password</label>
+              <label className="block text-xs font-semibold text-stone-700">Password</label>
               <div className="mt-1.5 relative rounded-lg shadow-xs">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-stone-400">
                   <Lock className="w-4 h-4" />
                 </div>
                 <input
@@ -133,12 +133,12 @@ export const LoginPage = () => {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Enter authorized password"
-                  className="w-full pl-9 pr-10 py-2.5 text-xs text-white bg-slate-900 border border-slate-700 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-teal-500/40 focus:border-teal-500 placeholder-slate-500"
+                  className="w-full pl-9 pr-10 py-2.5 text-xs text-stone-900 bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:bg-white focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 placeholder-stone-400"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-slate-200"
+                  className="absolute inset-y-0 right-0 pr-3 flex items-center text-stone-400 hover:text-stone-600"
                 >
                   {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                 </button>
@@ -146,12 +146,12 @@ export const LoginPage = () => {
             </div>
 
             <div className="flex items-center justify-between text-xs">
-              <label className="flex items-center space-x-2 text-slate-300 cursor-pointer">
+              <label className="flex items-center space-x-2 text-stone-600 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={rememberMe}
                   onChange={(e) => setRememberMe(e.target.checked)}
-                  className="rounded border-slate-700 text-teal-600 focus:ring-teal-500 bg-slate-900"
+                  className="rounded border-stone-300 text-orange-600 focus:ring-orange-500"
                 />
                 <span>Remember credentials</span>
               </label>
@@ -159,7 +159,7 @@ export const LoginPage = () => {
               <button
                 type="button"
                 onClick={() => setForgotModalOpen(true)}
-                className="font-medium text-teal-400 hover:text-teal-300"
+                className="font-medium text-orange-600 hover:text-orange-700"
               >
                 Forgot password?
               </button>
@@ -169,10 +169,10 @@ export const LoginPage = () => {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex justify-center items-center py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-xs font-bold text-slate-950 bg-gradient-to-r from-teal-400 to-sky-400 hover:from-teal-300 hover:to-sky-300 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-teal-500 disabled:opacity-50 transition-all cursor-pointer"
+                className="w-full flex justify-center items-center py-2.5 px-4 rounded-lg shadow-md shadow-orange-500/20 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-orange-500 disabled:opacity-50 transition-all cursor-pointer"
               >
                 {loading ? (
-                  <span className="w-4 h-4 border-2 border-slate-950 border-t-transparent rounded-full animate-spin mr-2" />
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2" />
                 ) : (
                   <ShieldCheck className="w-4 h-4 mr-2" />
                 )}
@@ -182,42 +182,42 @@ export const LoginPage = () => {
           </form>
 
           {/* Quick Demo Role Selector */}
-          <div className="mt-8 pt-6 border-t border-slate-800">
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider text-center mb-3">
+          <div className="mt-8 pt-6 border-t border-stone-100">
+            <p className="text-[11px] font-bold text-stone-500 uppercase tracking-wider text-center mb-3">
               One-Click Role Switcher (Seeded Demo)
             </p>
             <div className="grid grid-cols-2 gap-2 text-[11px]">
               <button
                 type="button"
                 onClick={() => quickFill('admin@fisheries.org', 'AdminPass123!')}
-                className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-teal-300 rounded-lg text-left border border-slate-700 transition-colors"
+                className="p-2.5 bg-stone-50 hover:bg-orange-50 text-stone-800 rounded-lg text-left border border-stone-200 hover:border-orange-300 transition-colors"
               >
-                <div className="font-bold">Maintenance Admin (Vishal)</div>
-                <div className="text-[10px] text-slate-400">admin@fisheries.org</div>
+                <div className="font-bold text-orange-700">Maintenance Admin (Vishal)</div>
+                <div className="text-[10px] text-stone-500">admin@fisheries.org</div>
               </button>
               <button
                 type="button"
                 onClick={() => quickFill('manager@fisheries.org', 'ManagerPass123!')}
-                className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-sky-300 rounded-lg text-left border border-slate-700 transition-colors"
+                className="p-2.5 bg-stone-50 hover:bg-orange-50 text-stone-800 rounded-lg text-left border border-stone-200 hover:border-orange-300 transition-colors"
               >
-                <div className="font-bold">Operations Manager (Arjun)</div>
-                <div className="text-[10px] text-slate-400">manager@fisheries.org</div>
+                <div className="font-bold text-stone-800">Operations Manager (Arjun)</div>
+                <div className="text-[10px] text-stone-500">manager@fisheries.org</div>
               </button>
               <button
                 type="button"
                 onClick={() => quickFill('tech@fisheries.org', 'TechPass123!')}
-                className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-emerald-300 rounded-lg text-left border border-slate-700 transition-colors"
+                className="p-2.5 bg-stone-50 hover:bg-orange-50 text-stone-800 rounded-lg text-left border border-stone-200 hover:border-orange-300 transition-colors"
               >
-                <div className="font-bold">Technician (Raj)</div>
-                <div className="text-[10px] text-slate-400">tech@fisheries.org</div>
+                <div className="font-bold text-emerald-700">Technician (Raj)</div>
+                <div className="text-[10px] text-stone-500">tech@fisheries.org</div>
               </button>
               <button
                 type="button"
                 onClick={() => quickFill('vendor@marineparts.com', 'VendorPass123!')}
-                className="p-2 bg-slate-800/80 hover:bg-slate-700/80 text-amber-300 rounded-lg text-left border border-slate-700 transition-colors"
+                className="p-2.5 bg-stone-50 hover:bg-orange-50 text-stone-800 rounded-lg text-left border border-stone-200 hover:border-orange-300 transition-colors"
               >
-                <div className="font-bold">Vendor (Ram)</div>
-                <div className="text-[10px] text-slate-400">vendor@marineparts.com</div>
+                <div className="font-bold text-amber-700">Vendor (Ram)</div>
+                <div className="text-[10px] text-stone-500">vendor@marineparts.com</div>
               </button>
             </div>
           </div>
@@ -226,16 +226,16 @@ export const LoginPage = () => {
 
       {/* Forgot Password Modal */}
       {forgotModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-xs">
-          <div className="w-full max-w-sm bg-[#0f172a] rounded-2xl p-6 border border-slate-800 space-y-4">
-            <h3 className="text-base font-bold text-white">Reset Account Password</h3>
-            <p className="text-xs text-slate-400">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-stone-900/40 backdrop-blur-xs">
+          <div className="w-full max-w-sm bg-white rounded-2xl p-6 border border-stone-200 shadow-2xl space-y-4">
+            <h3 className="text-base font-bold text-stone-900">Reset Account Password</h3>
+            <p className="text-xs text-stone-500">
               Provide your corporate email. If it is recognized by the credential directory, you will receive password recovery instructions.
             </p>
 
             {forgotSuccess ? (
-              <div className="p-3 bg-teal-500/10 border border-teal-500/30 rounded-xl text-xs text-teal-300 flex items-start space-x-2">
-                <CheckCircle2 className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+              <div className="p-3 bg-orange-50 border border-orange-200 rounded-xl text-xs text-orange-800 flex items-start space-x-2">
+                <CheckCircle2 className="w-4 h-4 text-orange-600 shrink-0 mt-0.5" />
                 <span>{forgotSuccess}</span>
               </div>
             ) : (
@@ -246,7 +246,7 @@ export const LoginPage = () => {
                   placeholder="name@fisheries.org"
                   value={forgotEmail}
                   onChange={(e) => setForgotEmail(e.target.value)}
-                  className="w-full px-3.5 py-2 text-xs text-white bg-slate-900 border border-slate-700 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-teal-500/40"
+                  className="w-full px-3.5 py-2 text-xs text-stone-900 bg-stone-50 border border-stone-200 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500"
                 />
                 <div className="flex justify-end space-x-2">
                   <button
@@ -255,14 +255,14 @@ export const LoginPage = () => {
                       setForgotModalOpen(false);
                       setForgotSuccess('');
                     }}
-                    className="px-3 py-1.5 text-xs text-slate-400 hover:text-white"
+                    className="px-3 py-1.5 text-xs text-stone-600 hover:text-stone-900"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={forgotLoading}
-                    className="px-4 py-1.5 text-xs font-bold text-slate-950 bg-teal-400 hover:bg-teal-300 rounded-lg"
+                    className="px-4 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg transition-colors"
                   >
                     {forgotLoading ? 'Dispatching...' : 'Dispatch Instructions'}
                   </button>
@@ -276,7 +276,7 @@ export const LoginPage = () => {
                     setForgotModalOpen(false);
                     setForgotSuccess('');
                   }}
-                  className="px-4 py-1.5 text-xs font-bold text-slate-950 bg-teal-400 rounded-lg"
+                  className="px-4 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg transition-colors"
                 >
                   Close
                 </button>

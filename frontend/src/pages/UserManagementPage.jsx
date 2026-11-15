@@ -159,7 +159,7 @@ export const UserManagementPage = () => {
       header: 'System Role',
       accessor: 'role',
       render: (r) => (
-        <span className="font-bold text-xs text-teal-800 bg-teal-50 border border-teal-200 px-2.5 py-1 rounded-md">
+        <span className="font-bold text-xs text-orange-800 bg-orange-50 border border-orange-200 px-2.5 py-1 rounded-md">
           {r.role}
         </span>
       ),
@@ -209,7 +209,7 @@ export const UserManagementPage = () => {
         <div className="flex items-center space-x-2">
           <button
             onClick={() => openEditModal(r)}
-            className="p-1.5 text-slate-500 hover:text-teal-700 hover:bg-slate-100 rounded"
+            className="p-1.5 text-slate-500 hover:text-orange-700 hover:bg-slate-100 rounded"
             title="Edit User"
           >
             <Edit2 className="w-4 h-4" />
@@ -249,7 +249,7 @@ export const UserManagementPage = () => {
 
         <button
           onClick={() => setCreateModalOpen(true)}
-          className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+          className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
         >
           <UserPlus className="w-4 h-4 mr-1.5" />
           Create Authorized User
@@ -392,7 +392,7 @@ export const UserManagementPage = () => {
             <button
               type="submit"
               disabled={createLoading}
-              className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+              className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
             >
               {createLoading ? 'Provisioning...' : 'Provision User'}
             </button>
@@ -469,7 +469,7 @@ export const UserManagementPage = () => {
               <button
                 type="submit"
                 disabled={createLoading}
-                className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
               >
                 {createLoading ? 'Saving...' : 'Save Changes'}
               </button>

@@ -90,7 +90,7 @@ export const ReportsAnalyticsPage = () => {
 
           <button
             onClick={handleExportCsv}
-            className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
           >
             <Download className="w-4 h-4 mr-1.5" />
             Export Live CSV
@@ -113,7 +113,7 @@ export const ReportsAnalyticsPage = () => {
                   onClick={() => setSelectedReportId(def.id)}
                   className={`w-full text-left p-2.5 rounded-xl text-xs transition-all flex flex-col ${
                     isSelected
-                      ? 'bg-teal-50 text-teal-900 font-bold border border-teal-200 shadow-2xs'
+                      ? 'bg-orange-50 text-orange-900 font-bold border border-orange-200 shadow-2xs'
                       : 'text-slate-600 hover:bg-slate-50'
                   }`}
                 >

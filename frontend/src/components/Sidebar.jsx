@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import {
   LayoutDashboard,
   Boxes,
-  Activity,
   Calendar,
   ClipboardList,
   Sparkles,
@@ -13,7 +12,6 @@ import {
   Bell,
   Users,
   ShieldCheck,
-  Settings,
   Fish,
   ChevronRight,
   X,
@@ -22,10 +20,9 @@ import { useAuth } from '../context/AuthContext';
 import { useNotifications } from '../context/NotificationContext';
 
 export const Sidebar = ({ isOpen, onClose }) => {
-  const { user, hasRole, hasAnyRole } = useAuth();
+  const { user, hasAnyRole } = useAuth();
   const { unreadCount } = useNotifications();
 
-  // Navigation menu grouped logically
   const navigationItems = [
     {
       group: 'Asset Operations',
@@ -122,45 +119,45 @@ export const Sidebar = ({ isOpen, onClose }) => {
       {isOpen && (
         <div
           onClick={onClose}
-          className="fixed inset-0 z-40 bg-slate-900/60 backdrop-blur-xs lg:hidden"
+          className="fixed inset-0 z-40 bg-stone-900/50 backdrop-blur-xs lg:hidden"
         />
       )}
 
-      {/* Sidebar Container */}
+      {/* Sidebar Container: Clean Crisp White with Orange Accents */}
       <aside
-        className={`fixed top-0 bottom-0 left-0 z-40 w-64 bg-[#0a1128] text-slate-300 flex flex-col border-r border-slate-800 transition-transform duration-200 ease-in-out lg:translate-x-0 ${
+        className={`fixed top-0 bottom-0 left-0 z-40 w-64 bg-white text-stone-700 flex flex-col border-r border-stone-200 shadow-sm transition-transform duration-200 ease-in-out lg:translate-x-0 ${
           isOpen ? 'translate-x-0' : '-translate-x-full'
         }`}
       >
         {/* Brand Header */}
-        <div className="flex items-center justify-between h-16 px-5 border-b border-slate-800 bg-[#070b1a]">
+        <div className="flex items-center justify-between h-16 px-5 border-b border-stone-100 bg-white">
           <div className="flex items-center space-x-3">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-teal-500 to-sky-400 flex items-center justify-center text-slate-950 font-bold shadow-md shadow-teal-500/20">
-              <Fish className="w-5 h-5 text-slate-950" />
+            <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-orange-500 to-amber-400 flex items-center justify-center text-white font-bold shadow-md shadow-orange-500/25">
+              <Fish className="w-5 h-5 text-white" />
             </div>
             <div>
-              <span className="text-sm font-bold text-white tracking-tight leading-none block">
+              <span className="text-sm font-black text-stone-900 tracking-tight leading-none block">
                 AquaReliability
               </span>
-              <span className="text-[10px] text-teal-400 font-medium tracking-wider uppercase block mt-0.5">
+              <span className="text-[10px] text-orange-600 font-bold tracking-wider uppercase block mt-0.5">
                 Fisheries Suite
               </span>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1 text-slate-400 hover:text-white rounded-lg lg:hidden"
+            className="p-1 text-stone-400 hover:text-stone-700 rounded-lg lg:hidden"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* User Scope Banner */}
-        <div className="px-5 py-3 border-b border-slate-800/60 bg-slate-900/40 text-xs">
-          <p className="text-[11px] text-slate-400 uppercase tracking-wider font-semibold">Active Profile</p>
+        <div className="px-5 py-3 border-b border-stone-100 bg-orange-50/40 text-xs">
+          <p className="text-[10px] text-stone-400 uppercase tracking-wider font-bold">Active Profile</p>
           <div className="flex items-center justify-between mt-1">
-            <span className="font-semibold text-slate-200 truncate">{user?.name || 'Guest User'}</span>
-            <span className="text-[10px] px-2 py-0.5 rounded-full bg-teal-950 text-teal-300 border border-teal-800 font-bold">
+            <span className="font-bold text-stone-900 truncate">{user?.name || 'Guest User'}</span>
+            <span className="text-[10px] px-2 py-0.5 rounded-full bg-orange-100 text-orange-700 border border-orange-200 font-bold">
               {user?.role || 'User'}
             </span>
           </div>
@@ -177,7 +174,7 @@ export const Sidebar = ({ isOpen, onClose }) => {
 
             return (
               <div key={groupIdx} className="space-y-1">
-                <p className="px-3 text-[10px] font-bold text-slate-400 uppercase tracking-wider">
+                <p className="px-3 text-[10px] font-bold text-stone-400 uppercase tracking-wider">
                   {group.group}
                 </p>
                 {filteredItems.map((item) => {
@@ -190,10 +187,10 @@ export const Sidebar = ({ isOpen, onClose }) => {
                         if (window.innerWidth < 1024) onClose();
                       }}
                       className={({ isActive }) =>
-                        `flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-all ${
+                        `flex items-center justify-between px-3 py-2 rounded-xl text-xs font-semibold transition-all ${
                           isActive
-                            ? 'bg-teal-500/15 text-teal-300 font-semibold border-l-2 border-teal-400'
-                            : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/50'
+                            ? 'bg-orange-500 text-white shadow-sm shadow-orange-500/25'
+                            : 'text-stone-600 hover:text-orange-600 hover:bg-orange-50/60'
                         }`
                       }
                     >
@@ -202,11 +199,11 @@ export const Sidebar = ({ isOpen, onClose }) => {
                         <span>{item.name}</span>
                       </div>
                       {item.badge ? (
-                        <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-teal-500 text-slate-950">
+                        <span className="px-1.5 py-0.2 rounded-full text-[10px] font-bold bg-amber-400 text-stone-900">
                           {item.badge}
                         </span>
                       ) : (
-                        <ChevronRight className="w-3 h-3 text-slate-400 opacity-0 group-hover:opacity-100" />
+                        <ChevronRight className="w-3 h-3 opacity-40 group-hover:opacity-100" />
                       )}
                     </NavLink>
                   );
@@ -217,10 +214,10 @@ export const Sidebar = ({ isOpen, onClose }) => {
         </div>
 
         {/* System Version Footer */}
-        <div className="p-3 border-t border-slate-800 bg-[#070b1a] text-[11px] text-slate-400 flex items-center justify-between">
-          <span>Reliability Core v2.4</span>
-          <span className="inline-flex items-center text-teal-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-teal-400 animate-pulse mr-1.5"></span>
+        <div className="p-3 border-t border-stone-100 bg-stone-50/50 text-[11px] text-stone-400 flex items-center justify-between">
+          <span className="font-medium">Reliability Core v2.4</span>
+          <span className="inline-flex items-center font-bold text-orange-600">
+            <span className="w-1.5 h-1.5 rounded-full bg-orange-500 animate-pulse mr-1.5"></span>
             Telemetry Live
           </span>
         </div>

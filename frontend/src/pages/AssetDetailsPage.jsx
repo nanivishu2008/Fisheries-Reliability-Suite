@@ -182,7 +182,7 @@ export const AssetDetailsPage = () => {
           </button>
           <div>
             <div className="flex items-center space-x-2">
-              <span className="font-mono text-xs font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
+              <span className="font-mono text-xs font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded">
                 {asset.assetCode}
               </span>
               <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">{asset.name}</h2>
@@ -199,9 +199,9 @@ export const AssetDetailsPage = () => {
           <button
             onClick={handleRunEvaluation}
             disabled={predictionRunning}
-            className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 rounded-lg hover:bg-teal-100 transition-colors cursor-pointer"
+            className="inline-flex items-center px-3 py-1.5 text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 rounded-lg hover:bg-orange-100 transition-colors cursor-pointer"
           >
-            <Sparkles className="w-3.5 h-3.5 mr-1 text-teal-600" />
+            <Sparkles className="w-3.5 h-3.5 mr-1 text-orange-600" />
             {predictionRunning ? 'Evaluating...' : 'Run AI Evaluation'}
           </button>
 
@@ -312,9 +312,9 @@ export const AssetDetailsPage = () => {
                 <Line
                   type="monotone"
                   dataKey="value"
-                  stroke="#0d9488"
+                  stroke="#ea580c"
                   strokeWidth={2}
-                  dot={{ r: 3, fill: '#0d9488' }}
+                  dot={{ r: 3, fill: '#ea580c' }}
                   name="Reading"
                 />
               </LineChart>
@@ -329,7 +329,7 @@ export const AssetDetailsPage = () => {
         <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="text-sm font-bold text-slate-800 flex items-center">
-              <Sparkles className="w-4 h-4 mr-2 text-teal-600" />
+              <Sparkles className="w-4 h-4 mr-2 text-orange-600" />
               Failure Predictions & RUL
             </h3>
             <span className="text-xs text-slate-400 font-semibold">{predictions.length} History</span>
@@ -353,7 +353,7 @@ export const AssetDetailsPage = () => {
                     <span>
                       Risk Score: <strong className="text-rose-600">{p.riskScore}%</strong>
                     </span>
-                    <span className="font-mono text-[10px] text-teal-700 bg-teal-50 px-1.5 py-0.5 rounded">
+                    <span className="font-mono text-[10px] text-orange-700 bg-orange-50 px-1.5 py-0.5 rounded">
                       {p.modelVersion}
                     </span>
                   </div>
@@ -367,7 +367,7 @@ export const AssetDetailsPage = () => {
         <div className="p-5 bg-white rounded-xl border border-slate-200 shadow-xs space-y-4">
           <div className="flex items-center justify-between pb-3 border-b border-slate-100">
             <h3 className="text-sm font-bold text-slate-800 flex items-center">
-              <Wrench className="w-4 h-4 mr-2 text-teal-600" />
+              <Wrench className="w-4 h-4 mr-2 text-orange-600" />
               Maintenance Work Orders
             </h3>
             <span className="text-xs text-slate-400 font-semibold">{workOrders.length} Records</span>
@@ -380,7 +380,7 @@ export const AssetDetailsPage = () => {
               {workOrders.map((wo) => (
                 <div key={wo._id} className="p-3.5 bg-slate-50 border border-slate-200 rounded-xl space-y-1.5 text-xs">
                   <div className="flex items-center justify-between">
-                    <span className="font-mono font-bold text-teal-800">{wo.workOrderNumber}</span>
+                    <span className="font-mono font-bold text-orange-800">{wo.workOrderNumber}</span>
                     <StatusBadge status={wo.status} />
                   </div>
                   <div className="font-semibold text-slate-800">{wo.title}</div>
@@ -470,7 +470,7 @@ export const AssetDetailsPage = () => {
             <button
               type="submit"
               disabled={telemetrySubmitting}
-              className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+              className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
             >
               {telemetrySubmitting ? 'Logging...' : 'Save Reading'}
             </button>

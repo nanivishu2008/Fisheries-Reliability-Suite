@@ -20,7 +20,7 @@ export const FormInput = ({
   const inputId = id || name;
 
   const baseClasses =
-    'w-full px-3.5 py-2 text-sm text-slate-800 bg-white border rounded-lg focus:outline-hidden focus:ring-2 focus:ring-teal-500/20 focus:border-teal-600 transition-colors disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed';
+    'w-full px-3.5 py-2 text-sm text-stone-800 bg-white border rounded-xl focus:outline-hidden focus:ring-2 focus:ring-orange-500/20 focus:border-orange-500 transition-colors disabled:bg-stone-100 disabled:text-stone-400 disabled:cursor-not-allowed';
 
   const borderClass = error ? 'border-rose-300 focus:border-rose-500 focus:ring-rose-200' : 'border-slate-300';
 

@@ -18,7 +18,7 @@ export const EmptyState = ({
       {actionLabel && onAction && (
         <button
           onClick={onAction}
-          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-teal-600 rounded-lg hover:bg-teal-700 transition-colors shadow-xs"
+          className="inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-orange-600 rounded-lg hover:bg-orange-700 transition-colors shadow-xs"
         >
           {actionLabel}
         </button>

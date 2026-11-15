@@ -67,7 +67,7 @@ export const FailureRiskPredictionPage = () => {
             <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
               Failure Risk & Remaining Useful Life (RUL)
             </h2>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-100 text-teal-800 border border-teal-200">
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-orange-100 text-orange-800 border border-orange-200">
               Explainable AI Core
             </span>
           </div>
@@ -93,7 +93,7 @@ export const FailureRiskPredictionPage = () => {
             <button
               onClick={handleRunBatchEvaluation}
               disabled={evaluating}
-              className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
             >
               <Sparkles className="w-4 h-4 mr-1.5" />
               {evaluating ? 'Evaluating Fleet...' : 'Re-Run AI Fleet Evaluation'}
@@ -103,8 +103,8 @@ export const FailureRiskPredictionPage = () => {
       </div>
 
       {/* Model Transparency Banner (Requirement 19) */}
-      <div className="p-4 bg-teal-50/70 border border-teal-200 rounded-xl flex items-start space-x-3 text-xs text-teal-900">
-        <Info className="w-4 h-4 text-teal-700 shrink-0 mt-0.5" />
+      <div className="p-4 bg-orange-50/70 border border-orange-200 rounded-xl flex items-start space-x-3 text-xs text-orange-900">
+        <Info className="w-4 h-4 text-orange-700 shrink-0 mt-0.5" />
         <div>
           <span className="font-bold">Transparent Engineering Notice:</span> This platform implements a dual-engine architecture: an explainable physics baseline (MTBF ratios & dynamic ISO sensor thresholds) and an integrated Google Gemini model. Predictions are evidence-based decision-support tools and require authorized human signoff.
         </div>
@@ -139,7 +139,7 @@ export const FailureRiskPredictionPage = () => {
               >
                 <div>
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                    <span className="font-mono text-xs font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded">
                       {p.assetId?.assetCode || 'Asset'}
                     </span>
                     <StatusBadge status={p.riskLevel} />
@@ -175,7 +175,7 @@ export const FailureRiskPredictionPage = () => {
                   <span className="font-mono text-[10px] bg-slate-100 px-1.5 py-0.5 rounded font-semibold text-slate-600">
                     {p.engineType === 'GEMINI_AI' ? 'Gemini 1.5' : 'Heuristic Baseline'}
                   </span>
-                  <span className="text-teal-700 font-bold hover:text-teal-900">
+                  <span className="text-orange-700 font-bold hover:text-orange-900">
                     Inspect Evidence &rarr;
                   </span>
                 </div>
@@ -209,7 +209,7 @@ export const FailureRiskPredictionPage = () => {
               </div>
               <div>
                 <span className="text-slate-400 font-semibold uppercase text-[10px]">Model Confidence</span>
-                <p className="text-2xl font-black text-teal-700 mt-1">
+                <p className="text-2xl font-black text-orange-700 mt-1">
                   {(selectedPrediction.confidenceScore * 100).toFixed(0)}%
                 </p>
               </div>
@@ -251,7 +251,7 @@ export const FailureRiskPredictionPage = () => {
             <div className="flex justify-end pt-4 border-t border-slate-100">
               <button
                 onClick={() => setSelectedPrediction(null)}
-                className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
               >
                 Close Inspection
               </button>

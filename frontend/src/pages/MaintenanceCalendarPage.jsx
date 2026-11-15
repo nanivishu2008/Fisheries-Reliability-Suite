@@ -112,7 +112,7 @@ export const MaintenanceCalendarPage = () => {
               onClick={() => setViewMode('month')}
               className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all ${
                 viewMode === 'month'
-                  ? 'bg-teal-600 text-white shadow-xs'
+                  ? 'bg-orange-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -123,7 +123,7 @@ export const MaintenanceCalendarPage = () => {
               onClick={() => setViewMode('technician')}
               className={`px-3 py-1.5 text-xs font-bold rounded-md transition-all ${
                 viewMode === 'technician'
-                  ? 'bg-teal-600 text-white shadow-xs'
+                  ? 'bg-orange-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
@@ -134,7 +134,7 @@ export const MaintenanceCalendarPage = () => {
 
           <button
             onClick={() => navigate('/planning')}
-            className="px-3 py-1.5 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors"
+            className="px-3 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors"
           >
             Open Kanban Board &rarr;
           </button>
@@ -203,22 +203,22 @@ export const MaintenanceCalendarPage = () => {
               return (
                 <div
                   key={`day-${day}`}
-                  className={`p-2 min-h-[90px] flex flex-col justify-between transition-colors hover:bg-teal-50/20 ${
-                    isToday ? 'bg-teal-50/40 ring-1 ring-teal-500 inset-0' : ''
+                  className={`p-2 min-h-[90px] flex flex-col justify-between transition-colors hover:bg-orange-50/20 ${
+                    isToday ? 'bg-orange-50/40 ring-1 ring-orange-500 inset-0' : ''
                   }`}
                 >
                   <div className="flex items-center justify-between">
                     <span
                       className={`text-xs font-bold ${
                         isToday
-                          ? 'w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center'
+                          ? 'w-6 h-6 rounded-full bg-orange-600 text-white flex items-center justify-center'
                           : 'text-slate-700'
                       }`}
                     >
                       {day}
                     </span>
                     {dayEvents.length > 0 && (
-                      <span className="text-[10px] font-bold text-teal-700 bg-teal-100 px-1.5 rounded-full">
+                      <span className="text-[10px] font-bold text-orange-700 bg-orange-100 px-1.5 rounded-full">
                         {dayEvents.length}
                       </span>
                     )}
@@ -235,7 +235,7 @@ export const MaintenanceCalendarPage = () => {
                             ? 'bg-rose-50 text-rose-800 border-rose-200 hover:bg-rose-100'
                             : event.priority === 'Urgent'
                             ? 'bg-amber-50 text-amber-800 border-amber-200 hover:bg-amber-100'
-                            : 'bg-teal-50 text-teal-800 border-teal-200 hover:bg-teal-100'
+                            : 'bg-orange-50 text-orange-800 border-orange-200 hover:bg-orange-100'
                         }`}
                         title={event.title}
                       >
@@ -277,7 +277,7 @@ export const MaintenanceCalendarPage = () => {
                 >
                   <div className="space-y-1">
                     <div className="flex items-center space-x-2">
-                      <span className="font-mono text-xs font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
+                      <span className="font-mono text-xs font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded">
                         {task.workOrderNumber}
                       </span>
                       <StatusBadge status={task.status} />
@@ -298,7 +298,7 @@ export const MaintenanceCalendarPage = () => {
                     <div className="text-slate-400">
                       Est. Downtime: {task.expectedDowntimeHours} hrs
                     </div>
-                    <span className="inline-block text-[11px] font-bold text-teal-600 hover:text-teal-800">
+                    <span className="inline-block text-[11px] font-bold text-orange-600 hover:text-orange-800">
                       View in Planning Board &rarr;
                     </span>
                   </div>
@@ -350,7 +350,7 @@ export const MaintenanceCalendarPage = () => {
               </button>
               <button
                 onClick={() => navigate('/planning')}
-                className="px-3 py-1.5 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+                className="px-3 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
               >
                 Open in Kanban Board
               </button>

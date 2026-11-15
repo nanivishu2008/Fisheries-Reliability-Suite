@@ -79,7 +79,7 @@ export const ConfirmationDialog = ({
             className={`px-4 py-2 text-sm font-semibold text-white rounded-lg transition-colors flex items-center ${
               isDanger
                 ? 'bg-rose-600 hover:bg-rose-700'
-                : 'bg-teal-600 hover:bg-teal-700'
+                : 'bg-orange-600 hover:bg-orange-700'
             }`}
           >
             {isLoading && (

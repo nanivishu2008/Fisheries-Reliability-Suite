@@ -124,7 +124,7 @@ export const MaintenanceRecommendationsPage = () => {
             <h2 className="text-xl font-extrabold text-slate-900 tracking-tight">
               AI Maintenance Recommendations
             </h2>
-            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-teal-100 text-teal-800 border border-teal-200">
+            <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-orange-100 text-orange-800 border border-orange-200">
               Human-in-the-Loop Review
             </span>
           </div>
@@ -165,7 +165,7 @@ export const MaintenanceRecommendationsPage = () => {
             >
               <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-slate-100 gap-2">
                 <div className="flex items-center space-x-2">
-                  <span className="font-mono text-xs font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
+                  <span className="font-mono text-xs font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded">
                     {rec.assetId?.assetCode || 'Asset'}
                   </span>
                   <h3 className="text-sm font-bold text-slate-900">{rec.recommendationTitle}</h3>
@@ -221,7 +221,7 @@ export const MaintenanceRecommendationsPage = () => {
                       <span className="text-slate-400 text-[10px] uppercase font-semibold">Likely Spare Parts:</span>
                       <div className="flex flex-wrap gap-1 mt-1">
                         {rec.probableSpareParts?.map((p, idx) => (
-                          <span key={idx} className="bg-teal-50 text-teal-800 border border-teal-200 px-1.5 py-0.5 rounded text-[10px] font-semibold">
+                          <span key={idx} className="bg-orange-50 text-orange-800 border border-orange-200 px-1.5 py-0.5 rounded text-[10px] font-semibold">
                             {p}
                           </span>
                         ))}
@@ -242,7 +242,7 @@ export const MaintenanceRecommendationsPage = () => {
                     <span className="italic text-slate-500">"{rec.reviewNotes}"</span>
                   )}
                   {rec.createdWorkOrderId && (
-                    <span className="font-mono text-teal-700 font-bold">
+                    <span className="font-mono text-orange-700 font-bold">
                       Work Order: {rec.createdWorkOrderId.workOrderNumber}
                     </span>
                   )}
@@ -278,7 +278,7 @@ export const MaintenanceRecommendationsPage = () => {
                   </button>
                   <button
                     onClick={() => handleAccept(rec)}
-                    className="px-4 py-1.5 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors"
+                    className="px-4 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors"
                   >
                     Accept & Schedule Work Order
                   </button>
@@ -387,7 +387,7 @@ export const MaintenanceRecommendationsPage = () => {
               <button
                 type="submit"
                 disabled={actionLoading}
-                className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
               >
                 {actionLoading ? 'Saving...' : 'Apply Override & Schedule'}
               </button>

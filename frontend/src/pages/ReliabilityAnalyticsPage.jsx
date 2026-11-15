@@ -64,7 +64,7 @@ export const ReliabilityAnalyticsPage = () => {
 
   const categoryColumns = [
     { header: 'Aquaculture Asset Category', accessor: 'category', render: (r) => <strong className="text-slate-800">{r.category}</strong> },
-    { header: 'Prediction Accuracy', accessor: 'accuracy', render: (r) => <span className="font-bold text-teal-700">{r.accuracy}%</span> },
+    { header: 'Prediction Accuracy', accessor: 'accuracy', render: (r) => <span className="font-bold text-orange-700">{r.accuracy}%</span> },
     { header: 'Mean Lead Time', accessor: 'leadTimeDays', render: (r) => `${r.leadTimeDays} days` },
     { header: 'Observed MTBF', accessor: 'mtbfHours', render: (r) => `${r.mtbfHours} hrs` },
     {
@@ -73,7 +73,7 @@ export const ReliabilityAnalyticsPage = () => {
       render: (r) => (
         <div className="flex items-center space-x-2">
           <div className="w-16 bg-slate-100 rounded-full h-2 overflow-hidden">
-            <div className="h-full bg-teal-500 rounded-full" style={{ width: `${r.healthIndex}%` }} />
+            <div className="h-full bg-orange-500 rounded-full" style={{ width: `${r.healthIndex}%` }} />
           </div>
           <span className="font-bold text-slate-700">{r.healthIndex}</span>
         </div>
@@ -119,7 +119,7 @@ export const ReliabilityAnalyticsPage = () => {
           value={`${metrics?.overallAccuracy || 92.4}%`}
           subtitle="Validated vs actual failures"
           icon={ShieldCheck}
-          accentColor="teal"
+          accentColor="orange"
         />
         <DashboardCard
           title="Maintenance Effectiveness"
@@ -167,7 +167,7 @@ export const ReliabilityAnalyticsPage = () => {
                 formatter={(v) => [`${v}% Precision`, 'Accuracy']}
                 contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', borderRadius: '8px', color: '#fff', fontSize: '12px' }}
               />
-              <Bar dataKey="accuracy" fill="#0d9488" radius={[4, 4, 0, 0]} name="Accuracy %" />
+              <Bar dataKey="accuracy" fill="#ea580c" radius={[4, 4, 0, 0]} name="Accuracy %" />
             </BarChart>
           </ResponsiveContainer>
         </div>

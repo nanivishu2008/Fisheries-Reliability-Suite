@@ -8,19 +8,18 @@ export const DashboardCard = ({
   icon: Icon,
   trend,
   trendDirection = 'neutral',
-  accentColor = 'teal',
+  accentColor = 'orange',
   onClick,
 }) => {
   const accentBorderColors = {
-    teal: 'border-l-teal-500 bg-teal-50 text-teal-600',
-    emerald: 'border-l-emerald-500 bg-emerald-50 text-emerald-600',
+    orange: 'border-l-orange-500 bg-orange-50 text-orange-600',
     amber: 'border-l-amber-500 bg-amber-50 text-amber-600',
     rose: 'border-l-rose-500 bg-rose-50 text-rose-600',
     sky: 'border-l-sky-500 bg-sky-50 text-sky-600',
     slate: 'border-l-slate-400 bg-slate-50 text-slate-600',
   };
 
-  const badgeColor = accentBorderColors[accentColor] || accentBorderColors.teal;
+  const badgeColor = accentBorderColors[accentColor] || accentBorderColors.orange;
 
   return (
     <div

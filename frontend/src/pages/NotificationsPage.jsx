@@ -43,7 +43,7 @@ export const NotificationsPage = () => {
               Operational Notifications & Alerts
             </h2>
             {unreadCount > 0 && (
-              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-teal-100 text-teal-800">
+              <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-orange-100 text-orange-800">
                 {unreadCount} Unread
               </span>
             )}
@@ -57,7 +57,7 @@ export const NotificationsPage = () => {
           {unreadCount > 0 && (
             <button
               onClick={markAllAsRead}
-              className="px-3 py-1.5 text-xs font-bold text-teal-700 bg-teal-50 border border-teal-200 rounded-lg hover:bg-teal-100 transition-colors"
+              className="px-3 py-1.5 text-xs font-bold text-orange-700 bg-orange-50 border border-orange-200 rounded-lg hover:bg-orange-100 transition-colors"
             >
               Mark All as Read
             </button>
@@ -73,7 +73,7 @@ export const NotificationsPage = () => {
             onClick={() => setFilterType(type)}
             className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
               filterType === type
-                ? 'bg-teal-600 text-white shadow-xs'
+                ? 'bg-orange-600 text-white shadow-xs'
                 : 'text-slate-600 hover:bg-slate-100'
             }`}
           >
@@ -100,7 +100,7 @@ export const NotificationsPage = () => {
                 key={notif._id}
                 onClick={() => markAsRead(notif._id)}
                 className={`p-4 transition-colors flex items-start justify-between gap-4 cursor-pointer hover:bg-slate-50 ${
-                  !notif.isRead ? 'bg-teal-50/20' : ''
+                  !notif.isRead ? 'bg-orange-50/20' : ''
                 }`}
               >
                 <div className="flex items-start space-x-3">
@@ -109,7 +109,7 @@ export const NotificationsPage = () => {
                       isUrgent
                         ? 'bg-rose-100 text-rose-600'
                         : notif.type === 'AI_PREDICTION'
-                        ? 'bg-teal-100 text-teal-600'
+                        ? 'bg-orange-100 text-orange-600'
                         : 'bg-slate-100 text-slate-600'
                     }`}
                   >
@@ -126,7 +126,7 @@ export const NotificationsPage = () => {
                     <div className="flex items-center space-x-2">
                       <h4 className="text-xs font-bold text-slate-900">{notif.title}</h4>
                       {!notif.isRead && (
-                        <span className="w-2 h-2 rounded-full bg-teal-500 shrink-0" />
+                        <span className="w-2 h-2 rounded-full bg-orange-500 shrink-0" />
                       )}
                       <StatusBadge status={notif.type} />
                     </div>
@@ -144,7 +144,7 @@ export const NotificationsPage = () => {
                         e.stopPropagation();
                         navigate(`/assets/${notif.relatedEntityId}`);
                       }}
-                      className="px-2.5 py-1 text-[11px] font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 rounded-md border border-teal-200"
+                      className="px-2.5 py-1 text-[11px] font-semibold text-orange-700 bg-orange-50 hover:bg-orange-100 rounded-md border border-orange-200"
                     >
                       Inspect Asset
                     </button>
@@ -155,7 +155,7 @@ export const NotificationsPage = () => {
                         e.stopPropagation();
                         navigate(`/planning`);
                       }}
-                      className="px-2.5 py-1 text-[11px] font-semibold text-teal-700 bg-teal-50 hover:bg-teal-100 rounded-md border border-teal-200"
+                      className="px-2.5 py-1 text-[11px] font-semibold text-orange-700 bg-orange-50 hover:bg-orange-100 rounded-md border border-orange-200"
                     >
                       Open Work Order
                     </button>

@@ -192,7 +192,7 @@ export const AuditLogsSettingsPage = () => {
   ];
 
   const partColumns = [
-    { header: 'Part Number', accessor: 'partNumber', render: (r) => <span className="font-mono font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded text-xs">{r.partNumber}</span> },
+    { header: 'Part Number', accessor: 'partNumber', render: (r) => <span className="font-mono font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded text-xs">{r.partNumber}</span> },
     { header: 'Component Name', accessor: 'name', render: (r) => <strong className="text-slate-900">{r.name}</strong> },
     { header: 'Category', accessor: 'category', render: (r) => <span className="text-xs text-slate-600">{r.category}</span> },
     {
@@ -237,7 +237,7 @@ export const AuditLogsSettingsPage = () => {
         {activeTab === 'audit' && (
           <button
             onClick={downloadAuditLogsCsv}
-            className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
           >
             <Download className="w-4 h-4 mr-1.5" />
             Export Audit Trail CSV
@@ -247,7 +247,7 @@ export const AuditLogsSettingsPage = () => {
         {activeTab === 'parts' && (
           <button
             onClick={() => setPartModalOpen(true)}
-            className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+            className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
           >
             <Plus className="w-4 h-4 mr-1.5" />
             Add Spare Part SKU
@@ -261,7 +261,7 @@ export const AuditLogsSettingsPage = () => {
           onClick={() => setActiveTab('audit')}
           className={`pb-3 transition-colors border-b-2 ${
             activeTab === 'audit'
-              ? 'border-teal-600 text-teal-700 font-extrabold'
+              ? 'border-orange-600 text-orange-700 font-extrabold'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
@@ -271,7 +271,7 @@ export const AuditLogsSettingsPage = () => {
           onClick={() => setActiveTab('settings')}
           className={`pb-3 transition-colors border-b-2 ${
             activeTab === 'settings'
-              ? 'border-teal-600 text-teal-700 font-extrabold'
+              ? 'border-orange-600 text-orange-700 font-extrabold'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
@@ -281,7 +281,7 @@ export const AuditLogsSettingsPage = () => {
           onClick={() => setActiveTab('parts')}
           className={`pb-3 transition-colors border-b-2 ${
             activeTab === 'parts'
-              ? 'border-teal-600 text-teal-700 font-extrabold'
+              ? 'border-orange-600 text-orange-700 font-extrabold'
               : 'border-transparent text-slate-500 hover:text-slate-800'
           }`}
         >
@@ -347,7 +347,7 @@ export const AuditLogsSettingsPage = () => {
               {settings.map((s) => (
                 <div key={s._id} className="p-5 bg-white rounded-2xl border border-slate-200 shadow-xs space-y-3">
                   <div className="flex items-center justify-between pb-2 border-b border-slate-100">
-                    <span className="font-mono text-xs font-bold text-teal-800 bg-teal-50 px-2 py-0.5 rounded">
+                    <span className="font-mono text-xs font-bold text-orange-800 bg-orange-50 px-2 py-0.5 rounded">
                       {s.key}
                     </span>
                     <span className="text-[10px] font-bold text-slate-400 uppercase">{s.category}</span>
@@ -476,7 +476,7 @@ export const AuditLogsSettingsPage = () => {
               </button>
               <button
                 type="submit"
-                className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+                className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
               >
                 Catalog Part
               </button>

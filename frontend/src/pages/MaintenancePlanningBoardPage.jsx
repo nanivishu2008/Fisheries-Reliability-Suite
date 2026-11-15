@@ -33,7 +33,7 @@ const KANBAN_COLUMNS = [
   { id: 'Pending Review', label: 'Pending Review', color: 'border-amber-300 bg-amber-50/30' },
   { id: 'Approved', label: 'Approved', color: 'border-sky-300 bg-sky-50/30' },
   { id: 'Scheduled', label: 'Scheduled', color: 'border-indigo-300 bg-indigo-50/30' },
-  { id: 'In Progress', label: 'In Progress', color: 'border-teal-300 bg-teal-50/30' },
+  { id: 'In Progress', label: 'In Progress', color: 'border-orange-300 bg-orange-50/30' },
   { id: 'Awaiting Verification', label: 'Awaiting Verification', color: 'border-purple-300 bg-purple-50/30' },
   { id: 'Completed', label: 'Completed', color: 'border-emerald-300 bg-emerald-50/30' },
   { id: 'Rejected', label: 'Rejected', color: 'border-rose-300 bg-rose-50/30' },
@@ -222,7 +222,7 @@ export const MaintenancePlanningBoardPage = () => {
           {hasAnyRole(['Maintenance Admin', 'Operations Manager']) && (
             <button
               onClick={() => setCreateModalOpen(true)}
-              className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs transition-colors cursor-pointer"
+              className="inline-flex items-center px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs transition-colors cursor-pointer"
             >
               <Plus className="w-4 h-4 mr-1.5" />
               Create Work Order
@@ -263,16 +263,16 @@ export const MaintenancePlanningBoardPage = () => {
                       <div
                         key={task._id}
                         onClick={() => setSelectedTask(task)}
-                        className="p-3 bg-white rounded-xl border border-slate-200 hover:border-teal-500 shadow-xs hover:shadow-md transition-all cursor-pointer space-y-2 group"
+                        className="p-3 bg-white rounded-xl border border-slate-200 hover:border-orange-500 shadow-xs hover:shadow-md transition-all cursor-pointer space-y-2 group"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="font-mono text-[10px] font-bold text-teal-800 bg-teal-50 px-1.5 py-0.5 rounded">
+                          <span className="font-mono text-[10px] font-bold text-orange-800 bg-orange-50 px-1.5 py-0.5 rounded">
                             {task.workOrderNumber}
                           </span>
                           <StatusBadge status={task.priority} />
                         </div>
 
-                        <h4 className="text-xs font-bold text-slate-900 group-hover:text-teal-700 transition-colors line-clamp-2">
+                        <h4 className="text-xs font-bold text-slate-900 group-hover:text-orange-700 transition-colors line-clamp-2">
                           {task.title}
                         </h4>
 
@@ -385,7 +385,7 @@ export const MaintenancePlanningBoardPage = () => {
             <button
               type="submit"
               disabled={createLoading}
-              className="px-4 py-2 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+              className="px-4 py-2 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
             >
               {createLoading ? 'Dispatching...' : 'Dispatch Work Order'}
             </button>
@@ -452,7 +452,7 @@ export const MaintenancePlanningBoardPage = () => {
                     onClick={() => handleMoveStatus(selectedTask, c.id)}
                     className={`px-2.5 py-1 text-[11px] font-semibold rounded-md border transition-all ${
                       selectedTask.status === c.id
-                        ? 'bg-teal-600 text-white border-teal-600 shadow-xs'
+                        ? 'bg-orange-600 text-white border-orange-600 shadow-xs'
                         : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
                     }`}
                   >
@@ -502,7 +502,7 @@ export const MaintenancePlanningBoardPage = () => {
                         type="button"
                         disabled={actionLoading}
                         onClick={handleApprove}
-                        className="px-4 py-1.5 text-xs font-bold text-white bg-teal-600 hover:bg-teal-700 rounded-lg shadow-xs"
+                        className="px-4 py-1.5 text-xs font-bold text-white bg-orange-600 hover:bg-orange-700 rounded-lg shadow-xs"
                       >
                         Approve for Scheduling
                       </button>

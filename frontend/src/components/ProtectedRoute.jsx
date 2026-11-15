@@ -34,7 +34,7 @@ export const ProtectedRoute = ({ children, allowedRoles = [] }) => {
           <div className="pt-2">
             <a
               href="/"
-              className="inline-flex px-4 py-2 text-sm font-semibold text-white bg-teal-600 hover:bg-teal-700 rounded-lg transition-colors"
+              className="inline-flex px-4 py-2 text-sm font-semibold text-white bg-orange-600 hover:bg-orange-700 rounded-lg transition-colors"
             >
               Return to Dashboard
             </a>
