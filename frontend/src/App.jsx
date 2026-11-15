@@ -8,7 +8,8 @@ import MainLayout from './layouts/MainLayout';
 
 // 12 Required Application Pages
 import LoginPage from './pages/LoginPage';
-import AssetRegistryDashboardPage from './pages/AssetRegistryDashboardPage';
+import HealthDashboardPage from './pages/HealthDashboardPage';
+import AssetRegistryPage from './pages/AssetRegistryPage';
 import AssetDetailsPage from './pages/AssetDetailsPage';
 import MaintenanceCalendarPage from './pages/MaintenanceCalendarPage';
 import MaintenancePlanningBoardPage from './pages/MaintenancePlanningBoardPage';
@@ -41,9 +42,9 @@ export const App = () => {
             >
               <Route index element={<Navigate to="/dashboard" replace />} />
 
-              {/* Page 2: Asset Registry and Health Dashboard */}
-              <Route path="dashboard" element={<AssetRegistryDashboardPage />} />
-              <Route path="assets" element={<AssetRegistryDashboardPage />} />
+              {/* Health Dashboard & Asset Registry (Distinct Pages) */}
+              <Route path="dashboard" element={<HealthDashboardPage />} />
+              <Route path="assets" element={<AssetRegistryPage />} />
 
               {/* Page 3: Asset Details and Maintenance History */}
               <Route path="assets/:id" element={<AssetDetailsPage />} />
