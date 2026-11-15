@@ -15,7 +15,7 @@ router.use(authenticate);
 
 // Failure Predictions
 router.get('/predictions', getPredictions);
-router.post('/predictions/run-evaluation', authorize('Maintenance Admin', 'Operations Manager'), runPredictionEvaluation);
+router.post('/predictions/run-evaluation', authorize('Maintenance Admin', 'Operations Manager', 'Technician'), runPredictionEvaluation);
 
 // AI Recommendations
 router.get('/recommendations', getRecommendations);
